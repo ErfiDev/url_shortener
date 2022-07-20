@@ -9,4 +9,5 @@ type SummaryPageData struct {
 	SUrl   string
 	LUrl   string
 	Exp    string
+	Msg    string
 }

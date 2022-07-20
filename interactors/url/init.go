@@ -7,8 +7,9 @@ type Interact struct {
 	Domain string
 }
 
-func New(db contract.DbContract) Interact {
+func New(db contract.DbContract, dom string) Interact {
 	return Interact{
-		DB: db,
+		DB:     db,
+		Domain: dom,
 	}
 }

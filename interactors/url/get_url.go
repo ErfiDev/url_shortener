@@ -18,5 +18,5 @@ func (i Interact) GetUrl(ctx context.Context, req dto.GetUrlReq) (dto.GetUrlRes,
 
 	return dto.GetUrlRes{
 		LUrl: v,
-	}, err
+	}, nil
 }
