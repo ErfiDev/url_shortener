@@ -1,5 +1,23 @@
-{{template "base" .}}
+{{template "base" .}} 
 
 {{define "content"}}
+  <div class="summary">
+    <label for="msg_h2">Message:</label>
+    <h2 id="msg_h2">{{.Msg}}</h2>
 
+    {{with .SUrl}}
+    <label for="surl_h2">Short url:</label>
+    <h2 id="surl_h2">{{.}}</h2>
+    {{end}} 
+
+    {{with .LUrl}}
+    <label for="lurl_h2">Long url:</label>
+    <h2 id="lurl_h2">{{.}}</h2>
+    {{end}} 
+
+    {{with .Exp}}
+    <label for="exp_h2">Expiration time:</label>
+    <h2 id="exp_h2">{{.}}</h2>
+    {{end}} 
+  </div> 
 {{end}}
