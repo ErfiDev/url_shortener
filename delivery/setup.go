@@ -12,11 +12,15 @@ import (
 )
 
 func Setup(db contract.DbContract, app *env.AppEnv) {
-	viewEngine := html.New("./views", ".gohtml")
+	viewEngine := html.New("./views", ".html")
 
 	r := fiber.New(fiber.Config{
-		Views: viewEngine,
+		Views:       viewEngine,
+		ViewsLayout: "base_layout",
 	})
+
+	// static files
+	r.Static("/static", "./static")
 
 	// initializing interactors
 	urlInteract := url.New(db, app.Domain)
@@ -29,7 +33,7 @@ func Setup(db contract.DbContract, app *env.AppEnv) {
 	r.Post("/api/v1/create_url", v1.CreateUrl(urlInteract, app))
 
 	log.Printf("router initialized, listening port: %s\n", app.Port)
-	err := r.Listen(app.Port)
+	err := r.Listen(":" + app.Port)
 	if err != nil {
 		log.Fatalf("Error on running router: %s", err)
 	}

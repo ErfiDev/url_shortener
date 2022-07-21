@@ -17,3 +17,5 @@ node_modules/
 .log
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+rdb_volume/
