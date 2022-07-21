@@ -4,7 +4,9 @@
 
   {{with .SUrl}}
   <label for="surl_h2">Short url:</label>
-  <h2 id="surl_h2">{{.}}</h2>
+  <h2 id="surl_h2">
+    <a href="{{.}}" target="_blank">{{.}}</a>
+  </h2>
   {{end}} {{with .LUrl}}
   <label for="lurl_h2">Long url:</label>
   <h2 id="lurl_h2">{{.}}</h2>
