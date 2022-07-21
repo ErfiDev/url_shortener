@@ -5,9 +5,9 @@ type LandingPageData struct {
 }
 
 type SummaryPageData struct {
-	Domain string
-	SUrl   string
-	LUrl   string
-	Exp    string
-	Msg    string
+	Domain string `json:"domain"`
+	SUrl   string `json:"short_url"`
+	LUrl   string `json:"long_url"`
+	Exp    string `json:"expiration"`
+	Msg    string `json:"msg"`
 }

@@ -25,8 +25,8 @@ func (i Interact) CreateShortUrl(ctx context.Context, req dto.CreateShortUrlReq)
 		}, err
 	}
 
-	_, err = i.DB.Get(ctx, hash)
-	if err != nil {
+	v, _ := i.DB.Get(ctx, hash)
+	if v != "" {
 		return dto.CreateShortUrlRes{
 			Msg: "Error from server, try again!",
 		}, err
@@ -40,7 +40,7 @@ func (i Interact) CreateShortUrl(ctx context.Context, req dto.CreateShortUrlReq)
 	}
 
 	return dto.CreateShortUrlRes{
-		SUrl: fmt.Sprintf("https://%s/u/%s", i.Domain, hash),
+		SUrl: fmt.Sprintf("http://%s:%s/u/%s", i.Domain, i.Port, hash),
 		LUrl: req.Url,
 		Exp:  "Two Hour",
 		Msg:  "Your short url successfuly generated!",
